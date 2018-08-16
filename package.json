@@ -1,0 +1,34 @@
+
+{
+  "name": "wguitree",
+  "version": "0.3.0",
+  "description": "GUI element to interact with tree structures.",
+  "author": "Kostiantyn Wandalen <wanalen@willbe.so>",
+  "license": "MIT",
+  "main": "staging/dwtools/amid/___",
+  "files": [
+    "staging/dwtools/amid",
+    "production"
+  ],
+  "scripts": {
+    "test": "wtest staging",
+    "make_doc": "./doc.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wandalen.wGuiTree.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Wandalen/wGuiTree/issues"
+  },
+  "dependencies": {
+    "wTools": ""
+  },
+  "devDependencies": {
+    "wTesting": "",
+    "wguitree": "."
+  },
+  "keywords": [
+    "wTools"
+  ]
+}
