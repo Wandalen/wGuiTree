@@ -23,6 +23,7 @@ var _ = _global_.wTools;
 
 _.include( 'wInstancing' );
 _.include( 'wEventHandler' );
+_.include( 'wGraph' );
 
 var Parent = wGhiAbstractModule;
 var Self = function wHiTree( o )
