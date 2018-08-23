@@ -931,8 +931,8 @@ var Composes =
   hotCssClass : 'hot',
   activeCssClass : 'active',
 
-  nodes : [],
-  terminals : [],
+  nodes : _.define.own( [] ),
+  terminals : _.define.own( [] ),
 
   onBranchElements : onBranchElements,
 
