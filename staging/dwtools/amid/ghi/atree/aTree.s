@@ -236,7 +236,7 @@ function _nodesMake( o )
 
   _.assert( arguments.length === 1 );
   _.routineOptions( _nodesMake,o );
-  _.assert( _.strIs( o.text ) || o.branch );
+  _.assert( _.strIs( o.text ) || _.objectIs( o.branch ) );
   _.assert( _.arrayIs( o.elements ) || _.objectIs( o.elements ) );
 
   o.branch = o.branch || self._nodeBranchMake({ text : o.text })
@@ -301,8 +301,8 @@ function _nodeMake( node, down )
     if( !node.kind && node.elements )
     node.kind = 'branch';
 
-    _.assert( node.down );
-    _.assert( node.kind,'not clear is node branch or terminal' );
+    _.assert( _.objectIs( node.down ) );
+    _.assert( _.strIs( node.kind ),'not clear is node branch or terminal' );
 
     if( node.kind === 'branch' )
     return self._nodeBranchMake( node );
@@ -313,7 +313,7 @@ function _nodeMake( node, down )
   {
     node = { text : node, down : down }
 
-    _.assert( node.down );
+    _.assert( _.objectIs( node.down ) );
 
     return self._nodeTerminalMake( node );
   }
