@@ -541,7 +541,7 @@ function _nodeValidate( node )
 {
   var self = this;
   _.assert( _.construction.isLike( node,self.Node.Abstract ) );
-  _.assert( _.strIsNotEmpty( node.text ),'node should has text' );
+  _.assert( _.strDefined( node.text ),'node should has text' );
   return self;
 }
 
