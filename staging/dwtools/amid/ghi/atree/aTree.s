@@ -290,7 +290,7 @@ function _nodeMake( node, down )
   var self = this;
 
   _.assert( arguments.length === 1 || arguments.length === 2 );
-  _.assert( node !== undefined,'expects { node }' );
+  _.assert( node !== undefined,'Expects { node }' );
 
   if( _.objectIs( node ) )
   {
