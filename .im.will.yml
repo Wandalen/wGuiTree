@@ -78,6 +78,13 @@ step :
     inherit : grab
     reflector : reflector::grab.release
 
+  grab.dependencies.debug :
+    inherit : grab
+    reflector : reflector::grab.dependencies.debug
+  grab.dependencies.release :
+    inherit : grab
+    reflector : reflector::grab.dependencies.release
+
 build :
 
   .debug :
@@ -89,6 +96,7 @@ build :
       compiled : 0
     steps :
       - step::grab.debug
+      - step::grab.dependencies
 
   .debug.compiled :
     setting :
@@ -122,4 +130,3 @@ build :
       - concurrent :
         - build::.debug
         - build::.release.compiled
-
