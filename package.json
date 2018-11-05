@@ -4,14 +4,14 @@
   "description": "GUI element to interact with tree structures.",
   "author": "Kostiantyn Wandalen <wanalen@willbe.so>",
   "license": "MIT",
-  "main": "staging/dwtools/amid/___",
+  "main": "proto/dwtools/amid/___",
   "files": [
-    "staging/dwtools/amid",
+    "proto/dwtools/amid",
     "production"
   ],
   "scripts": {
     "test": "wtest staging",
-    "make_doc": "./doc.sh"
+    "docgen": "wdocgen proto"
   },
   "repository": {
     "type": "git",
