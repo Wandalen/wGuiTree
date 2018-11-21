@@ -2,8 +2,8 @@
 about :
 
   name : wGuiTree
-  description : GUI element to interact with tree structures.
-  version : 0.3.15
+  description : 'GUI element to interact with tree structures.'
+  version : 0.3.16
   enabled : 1
   interpreters :
   - nodejs >= 6.0.0
