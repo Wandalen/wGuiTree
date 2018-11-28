@@ -160,8 +160,8 @@ reflector:
       ./dwtools/amid/ghi/atree/aTree.less: true
       ./dwtools/amid/ghi/atree/aTree.s: true
     srcFilter:
-      basePath: ./proto
-      prefixPath: .
+      basePath: .
+      prefixPath: proto
     dstFilter:
       basePath: .
       prefixPath: .
