@@ -3,7 +3,7 @@ about :
 
   name : "wGuiTree"
   description : "GUI element to interact with tree structures."
-  version : "0.3.25"
+  version : "0.3.26"
   enabled : 1
   interpreters :
   - nodejs >= 6.0.0
