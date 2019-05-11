@@ -25,6 +25,12 @@ _.include( 'wInstancing' );
 _.include( 'wEventHandler' );
 _.include( 'wGraph' );
 
+/**
+ * @classdesc GUI element to interact with tree structures.
+ * @class wHiTree
+ * @memberof module:Tools/amid/gui/Tree
+*/
+
 var Parent = wGhiAbstractModule;
 var Self = function wHiTree( o )
 {
@@ -56,6 +62,12 @@ function init( o )
 }
 
 //
+
+/**
+ * @descriptionNeeded
+ * @function exec
+ * @memberof module:module:Tools/amid/gui/Tree.wHiTree
+*/
 
 function exec()
 {
@@ -547,6 +559,14 @@ function _nodeValidate( node )
 
 //
 
+/**
+ * @descriptionNeeded
+ * @param {Object} o Options map.
+ * @param {Object} o.element Element to apply to the tree.
+ * @function treeApply
+ * @memberof module:module:Tools/amid/gui/Tree.wHiTree#
+*/
+
 function treeApply( o )
 {
   var self = this;
@@ -610,6 +630,14 @@ function _buttonNodeOpenCloseClick( openning )
 
 //
 
+/**
+ * @descriptionNeeded
+ * @param {Number} offset 
+ * @param {Number} axis 
+ * @function activateRelativeTouching
+ * @memberof module:module:Tools/amid/gui/Tree.wHiTree#
+*/
+
 function activateRelativeTouching( offset,axis )
 {
   var self = this;
@@ -639,6 +667,15 @@ function activateRelativeTouching( offset,axis )
 }
 
 //
+
+/**
+ * @summary Activates provided `node`. 
+ * @description Also scrolls page to new node and fires `nodeActivate` event.
+ * @param {Object} node Node to activate
+ * @param {Boolean} withKey 
+ * @function nodeActivateTouching
+ * @memberof module:module:Tools/amid/gui/Tree.wHiTree#
+*/
 
 function nodeActivateTouching( node,withKey )
 {
@@ -670,6 +707,14 @@ function nodeActivateTouching( node,withKey )
 
 //
 
+/**
+ * @summary Activates provided `node`. 
+ * @description Removes active class name from current node and appends it new one. Scrolls page to new active node.
+ * @param {Object} node Node to activate.
+ * @function nodeActivateChanging
+ * @memberof module:module:Tools/amid/gui/Tree.wHiTree#
+*/
+
 function nodeActivateChanging( node )
 {
   var self = this;
@@ -690,6 +735,13 @@ function nodeActivateChanging( node )
 }
 
 //
+
+/**
+ * @summary Scrolls page to provided `node`. 
+ * @param {Object} node Node to scroll to.
+ * @function nodeScrollTo
+ * @memberof module:module:Tools/amid/gui/Tree.wHiTree#
+*/
 
 function nodeScrollTo( node )
 {
@@ -725,6 +777,14 @@ function nodeScrollTo( node )
 
 //
 
+/**
+ * @descriptionNeeded
+ * @param {Object} node Target node.
+ * @param {} value
+ * @function branchOpenRecursive
+ * @memberof module:module:Tools/amid/gui/Tree.wHiTree#
+*/
+
 function branchOpenRecursive( node,value )
 {
   var self = this;
@@ -740,6 +800,14 @@ function branchOpenRecursive( node,value )
 }
 
 //
+
+/**
+ * @descriptionNeeded
+ * @param {Object} node Target node.
+ * @param {} value
+ * @function branchOpen
+ * @memberof module:module:Tools/amid/gui/Tree.wHiTree#
+*/
 
 function branchOpen( selector,value )
 {
