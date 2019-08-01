@@ -1,8 +1,7 @@
-
 {
   "name": "wguitree",
-  "version": "0.3.0",
-  "description": "___",
+  "version": "0.3.46",
+  "description": "GUI element to interact with tree structures.",
   "author": "Kostiantyn Wandalen <wanalen@willbe.so>",
   "license": "MIT",
   "main": "proto/dwtools/amid/___",
@@ -12,7 +11,7 @@
     "production"
   ],
   "scripts": {
-    "test": "wtest proto",
+    "test": "wtest .run proto/**",
     "docgen": "wdocgen proto"
   },
   "repository": {

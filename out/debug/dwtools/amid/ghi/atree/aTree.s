@@ -34,7 +34,7 @@ _.include( 'wGraph' );
 var Parent = wGhiAbstractModule;
 var Self = function wHiTree( o )
 {
-  return _.instanceConstructor( Self, this, arguments );
+  return _.workpiece.construct( Self, this, arguments );
 }
 
 Self.shortName = 'HiTree';
@@ -632,8 +632,8 @@ function _buttonNodeOpenCloseClick( openning )
 
 /**
  * @descriptionNeeded
- * @param {Number} offset 
- * @param {Number} axis 
+ * @param {Number} offset
+ * @param {Number} axis
  * @function activateRelativeTouching
  * @memberof module:module:Tools/amid/gui/Tree.wHiTree#
 */
@@ -669,10 +669,10 @@ function activateRelativeTouching( offset,axis )
 //
 
 /**
- * @summary Activates provided `node`. 
+ * @summary Activates provided `node`.
  * @description Also scrolls page to new node and fires `nodeActivate` event.
  * @param {Object} node Node to activate
- * @param {Boolean} withKey 
+ * @param {Boolean} withKey
  * @function nodeActivateTouching
  * @memberof module:module:Tools/amid/gui/Tree.wHiTree#
 */
@@ -708,7 +708,7 @@ function nodeActivateTouching( node,withKey )
 //
 
 /**
- * @summary Activates provided `node`. 
+ * @summary Activates provided `node`.
  * @description Removes active class name from current node and appends it new one. Scrolls page to new active node.
  * @param {Object} node Node to activate.
  * @function nodeActivateChanging
@@ -737,7 +737,7 @@ function nodeActivateChanging( node )
 //
 
 /**
- * @summary Scrolls page to provided `node`. 
+ * @summary Scrolls page to provided `node`.
  * @param {Object} node Node to scroll to.
  * @function nodeScrollTo
  * @memberof module:module:Tools/amid/gui/Tree.wHiTree#
