@@ -22,7 +22,7 @@ about :
 path :
 
   repository : git+https:///github.com/Wandalen/wGuiTree.git
-  remotes :
+  origins :
    - git+https:///github.com/Wandalen/wGuiTree.git
    - npm:///wguitree
   bugs : https:///github.com/Wandalen/wGuiTree/issues
