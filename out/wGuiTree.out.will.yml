@@ -2,24 +2,28 @@ format: outwillfile-2.0
 root:
   - wGuiTree.out
 consistency:
-  ../.ex.will.yml: &ref_0
+  wGuiTree.out.will.yml: &ref_0
+    hash: f9a6180d54077689fe4a865ddb242822
+    size: 12814
+  ../.ex.will.yml: &ref_1
     hash: 92975195801b6bbde7a2b6597e0cf8f3
     size: 890
-  ../.im.will.yml: &ref_1
+  ../.im.will.yml: &ref_2
     hash: 844ab52058e80d039128df770afd6bfa
     size: 1692
 module:
   wGuiTree.out:
     about:
       name: wGuiTree
+      org: noorg
       description: GUI element to interact with tree structures.
       enabled: 1
       version: 0.3.31
-      interpreters: &ref_2
+      interpreters:
         - nodejs >= 8.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords: &ref_3
+      keywords:
         - wTools
     path:
       module.willfiles:
@@ -49,9 +53,6 @@ module:
       download:
         criterion:
           predefined: 1
-      remote:
-        criterion:
-          predefined: 1
       repository:
         path: 'git+https:///github.com/Wandalen/wGuiTree.git'
       origins:
@@ -61,14 +62,10 @@ module:
       bugs:
         path: 'https:///github.com/Wandalen/wGuiTree/issues'
       in:
-        criterion:
-          predefined: 0
         path: .
       temp:
         path: .
       out:
-        criterion:
-          predefined: 0
         path: .
       out.debug:
         criterion:
@@ -84,6 +81,7 @@ module:
         path: '{path::proto}/**'
       exported.dir.proto.export:
         criterion:
+          generated: 1
           default: 1
           debug: 1
           raw: 1
@@ -94,6 +92,7 @@ module:
         path: ../proto
       exported.files.proto.export:
         criterion:
+          generated: 1
           default: 1
           debug: 1
           raw: 1
@@ -154,6 +153,7 @@ module:
           prefixPath: ../proto
         mandatory: 1
         criterion:
+          generated: 1
           default: 1
           debug: 1
           raw: 1
@@ -171,6 +171,7 @@ module:
         recursive: 0
         mandatory: 1
         criterion:
+          generated: 1
           default: 1
           debug: 1
           raw: 1
@@ -258,6 +259,34 @@ module:
           debug: 1
         inherit:
           - files.reflect
+      exported.proto.export:
+        opts:
+          reflector: 'reflector::exported.proto.export*'
+        criterion:
+          generated: 1
+          default: 1
+          debug: 1
+          raw: 1
+          proto: 1
+          export: 1
+          tar: 1
+          public: 1
+        inherit:
+          - files.reflect
+      exported.files.proto.export:
+        opts:
+          reflector: 'reflector::exported.files.proto.export*'
+        criterion:
+          generated: 1
+          default: 1
+          debug: 1
+          raw: 1
+          proto: 1
+          export: 1
+          tar: 1
+          public: 1
+        inherit:
+          - files.reflect
     build:
       proto.export:
         steps:
@@ -323,16 +352,22 @@ module:
           tar: 1
           public: 1
     consistency:
-      ../.ex.will.yml: *ref_0
-      ../.im.will.yml: *ref_1
+      wGuiTree.out.will.yml: *ref_0
+      ../.ex.will.yml: *ref_1
+      ../.im.will.yml: *ref_2
   ../:
     about:
       name: wGuiTree
+      org: noorg
       description: GUI element to interact with tree structures.
       enabled: 1
       version: 0.3.31
-      interpreters: *ref_2
-      keywords: *ref_3
+      interpreters:
+        - nodejs >= 8.0.0
+        - chrome >= 60.0.0
+        - firefox >= 60.0.0
+      keywords:
+        - wTools
     path:
       module.willfiles:
         criterion:
@@ -361,9 +396,6 @@ module:
       download:
         criterion:
           predefined: 1
-      remote:
-        criterion:
-          predefined: 1
       repository:
         path: 'git+https:///github.com/Wandalen/wGuiTree.git'
       origins:
@@ -373,25 +405,21 @@ module:
       bugs:
         path: 'https:///github.com/Wandalen/wGuiTree/issues'
       in:
-        criterion:
-          predefined: 0
         path: .
       temp:
         path: out
       out:
-        criterion:
-          predefined: 0
         path: out
       out.debug:
         criterion:
           debug: 1
-        path: ./out/debug
+        path: out/debug
       out.release:
         criterion:
           debug: 0
-        path: ./out/release
+        path: out/release
       proto:
-        path: ./proto
+        path: proto
       export:
         path: '{path::proto}/**'
     submodule: {}
@@ -556,3 +584,6 @@ module:
       ../.im.will.yml:
         hash: 844ab52058e80d039128df770afd6bfa
         size: 1692
+      wGuiTree.out.will.yml:
+        hash: f9a6180d54077689fe4a865ddb242822
+        size: 12814
