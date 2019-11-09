@@ -584,6 +584,4 @@ module:
       ../.im.will.yml:
         hash: 844ab52058e80d039128df770afd6bfa
         size: 1692
-      wGuiTree.out.will.yml:
-        hash: f9a6180d54077689fe4a865ddb242822
-        size: 12814
+      wGuiTree.out.will.yml: *ref_0
