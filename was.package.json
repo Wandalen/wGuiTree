@@ -12,7 +12,7 @@
   {
     "url" : "https://github.com/Wandalen/wGuiTree/issues"
   }, 
-  "dependencies" : { "wTools" : "beta" }, 
-  "devDependencies" : { "wTesting" : "beta" }, 
+  "dependencies" : { "wTools" : "" }, 
+  "devDependencies" : { "wTesting" : "" }, 
   "keywords" : [ "wTools" ]
 }
