@@ -74,7 +74,7 @@ function exec()
   var self = new this.Self();
   _.assert( !this.instanceIs() );
   _.assert( arguments.length === 0 );
-  _.timeReady( () => self._exec() );
+  _.time.ready( () => self._exec() );
   return self;
 }
 
