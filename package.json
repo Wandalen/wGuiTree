@@ -1,6 +1,6 @@
 {
   "name" : "wguitree", 
-  "version" : "0.3.80", 
+  "version" : "0.3.81", 
   "description" : "GUI element to interact with tree structures.", 
   "author" : "Kostiantyn Wandalen <wanalen@willbe.so>", 
   "license" : "MIT", 
@@ -12,7 +12,7 @@
   {
     "url" : "https://github.com/Wandalen/wGuiTree/issues"
   }, 
-  "dependencies" : { "wTools" : "beta" }, 
-  "devDependencies" : { "wTesting" : "beta" }, 
+  "dependencies" : { "wTools" : "alpha" }, 
+  "devDependencies" : { "wTesting" : "alpha" }, 
   "keywords" : [ "wTools" ]
 }
