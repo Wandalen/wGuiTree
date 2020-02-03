@@ -73,7 +73,7 @@ function exec()
 {
   var self = new this.Self();
   _.assert( !this.instanceIs() );
-  _.assert( arguments.length === 0 );
+  _.assert( arguments.length === 0, 'Expects no arguments' );
   _.time.ready( () => self._exec() );
   return self;
 }
@@ -176,7 +176,7 @@ function _formAct()
 
   self._makeRoot();
 
-  _.assert( arguments.length === 0 );
+  _.assert( arguments.length === 0, 'Expects no arguments' );
   _.assert( self.targetDom.length );
   _.assert( self.contentDom.length );
 
