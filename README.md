@@ -6,7 +6,7 @@ GUI element to interact with tree structures.
 ## Try out
 ```
 npm install
-node sample/Sample.s
+node sample/Sample.js
 ```
 
 
