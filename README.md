@@ -1,5 +1,5 @@
 
-# wGuiTree [![Build Status](https://travis-ci.org/Wandalen/wGuiTree.svg?branch=master)](https://travis-ci.org/Wandalen/wGuiTree)
+# module::GuiTree [![Status](https://github.com/Wandalen/wGuiTree/workflows/Test/badge.svg)](https://github.com/Wandalen/wGuiTree}/actions?query=workflow%3ATest)
 
 GUI element to interact with tree structures.
 
