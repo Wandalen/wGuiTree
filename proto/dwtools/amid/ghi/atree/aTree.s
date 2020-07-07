@@ -792,7 +792,7 @@ function branchOpenRecursive( node,value )
   _.assert( arguments.length === 1 || arguments.length === 2 );
   _.assert( _.objectIs( node ) );
 
-  self._eachNode( node,function( node )
+  self._nodeEach( node,function( node )
   {
     self._branchOpen( node,value );
   });
@@ -879,7 +879,7 @@ function _branchHot( node,value )
 // traverse
 // --
 
-function _eachNode( o )
+function _nodeEach( o )
 {
   var self = this;
 
@@ -892,7 +892,7 @@ function _eachNode( o )
   o.elementsGet = function( node ){ return node.elements || []; };
   o.nameGet = function( node ){ return node.text; };
 
-  return _.graph.eachNode( o );
+  return _.graph.nodeEach( o );
 }
 
 //
@@ -1099,7 +1099,7 @@ var Proto =
 
   // traversing
 
-  _eachNode : _eachNode,
+  _nodeEach : _nodeEach,
   _goRelative : _goRelative,
 
   //
