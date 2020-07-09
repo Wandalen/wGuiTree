@@ -14,7 +14,7 @@ if( typeof module !== 'undefined' )
 {
 
   require( '../Abstract.js' );
-  require( '../../../../dwtools/amid/l1/graphTools/IncludeTop.s' );
+  require( '../../../../wtools/amid/l1/graphTools/IncludeTop.s' );
 
 }
 
