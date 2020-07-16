@@ -19,7 +19,7 @@ if( typeof module !== 'undefined' )
 }
 
 var $ = jQuery;
-var _ = _global_.wTools;
+let _ = _global_.wTools;
 
 _.include( 'wInstancing' );
 _.include( 'wEventHandler' );
@@ -31,8 +31,8 @@ _.include( 'wGraph' );
  * @memberof module:Tools/amid/gui/Tree
 */
 
-var Parent = wGhiAbstractModule;
-var Self = function wHiTree( o )
+let Parent = wGhiAbstractModule;
+let Self = function wHiTree( o )
 {
   return _.workpiece.construct( Self, this, arguments );
 }
