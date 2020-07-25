@@ -7,8 +7,7 @@
 */
 
 /**
- * @file aTree.s.
- */
+ *  */
 
 if( typeof module !== 'undefined' )
 {
