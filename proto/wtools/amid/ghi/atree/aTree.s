@@ -73,7 +73,7 @@ function exec()
   var self = new this.Self();
   _.assert( !this.instanceIs() );
   _.assert( arguments.length === 0, 'Expects no arguments' );
-  _.time.ready( () => self._exec() );
+  _.process.ready( () => self._exec() );
   return self;
 }
 
