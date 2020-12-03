@@ -819,7 +819,7 @@ function branchOpen( selector,value )
 
   _.assert( arguments.length === 1 || arguments.length === 2 );
 
-  var nodes = _.entityFilter( self.nodes,selector )
+  var nodes = _.filter_( null, self.nodes,selector )
 
   for( var i = 0 ; i < nodes.length ; i++ )
   self._branchOpen( nodes[ i ],value );
