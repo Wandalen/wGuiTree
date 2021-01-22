@@ -1,4 +1,5 @@
-( function _aTree_s_( ) {
+( function _aTree_s_( )
+{
 
 'use strict';
 
@@ -31,7 +32,8 @@ _.include( 'wGraph' );
 */
 
 let Parent = wGhiAbstractModule;
-let Self = function wHiTree( o )
+let Self = wHiTree;
+function wHiTree( o )
 {
   return _.workpiece.construct( Self, this, arguments );
 }
@@ -56,7 +58,7 @@ var NodeGetters =
 function init( o )
 {
   var self = this;
-  Parent.prototype.init.call( self,o );
+  Parent.prototype.init.call( self, o );
   Object.preventExtensions( self );
 }
 
@@ -98,9 +100,9 @@ function _execDefaults()
 
   var elementsMap =
   {
-    'first branch' : [ 'apple','pinnacle','orange' ],
-    'second branch' : [ 'table','chair' ],
-    'third branch' : { 'third branch a' : [ 'yellow','green' ], 'third branch b' : [ 'red','blue','orange' ] },
+    'first branch' : [ 'apple', 'pinnacle', 'orange' ],
+    'second branch' : [ 'table', 'chair' ],
+    'third branch' : { 'third branch a' : [ 'yellow', 'green' ], 'third branch b' : [ 'red', 'blue', 'orange' ] },
     'empty branch' : [],
   }
 
@@ -122,18 +124,18 @@ function _formAct()
   self.contentDom[ 0 ].setAttribute( 'tabindex', '0' );
 
   $( self.contentDom )
-  .on( 'keydown',function( e )
+  .on( 'keydown', function( e )
   {
     // console.log( 'keydown',e.keyCode );
 
     if( e.keyCode === 38 )
-    self.activateRelativeTouching( -1,'horizontal' );
+    self.activateRelativeTouching( -1, 'horizontal' );
     else if( e.keyCode === 40 )
-    self.activateRelativeTouching( +1,'horizontal' );
+    self.activateRelativeTouching( +1, 'horizontal' );
     else if( e.keyCode === 37 )
-    self.activateRelativeTouching( -1,'vertical' );
+    self.activateRelativeTouching( -1, 'vertical' );
     else if( e.keyCode === 39 )
-    self.activateRelativeTouching( +1,'vertical' );
+    self.activateRelativeTouching( +1, 'vertical' );
     else if( e.keyCode === 16 )
     self._shiftDown = 1;
     else if( e.keyCode === 32 )
@@ -145,7 +147,7 @@ function _formAct()
 
     return false;
   })
-  .on( 'keyup',function( e )
+  .on( 'keyup', function( e )
   {
     // console.log( 'keyup',e.keyCode );
 
@@ -167,10 +169,10 @@ function _formAct()
     var closeDom = $( '<i class="large reactive angle left icon"></i>' ).appendTo( self.iconsDom );
 
     openDom
-    .bind( _.eventName( 'click' ), _.routineSeal( self,self._buttonNodeOpenCloseClick,[ 1 ] ) );
+    .bind( _.eventName( 'click' ), _.routineSeal( self, self._buttonNodeOpenCloseClick, [ 1 ] ) );
 
     closeDom
-    .bind( _.eventName( 'click' ), _.routineSeal( self,self._buttonNodeOpenCloseClick,[ 0 ] ) );
+    .bind( _.eventName( 'click' ), _.routineSeal( self, self._buttonNodeOpenCloseClick, [ 0 ] ) );
   }
 
   self._makeRoot();
@@ -196,7 +198,7 @@ function _makeRoot( o )
   o = o || Object.create( null );
 
   _.assert( arguments.length === 0 || arguments.length === 1 );
-  _.routineOptions( _makeRoot,o );
+  _.routineOptions( _makeRoot, o );
   _.assert( _.strIs( o.text ) );
   _.assert( !self.rootNode );
 
@@ -224,7 +226,7 @@ function _makeAboveRoot( o )
   o.elements = self.onBranchElements( o.elements );
 
   _.assert( arguments.length === 0 || arguments.length === 1 );
-  _.routineOptions( _makeAboveRoot,o );
+  _.routineOptions( _makeAboveRoot, o );
   _.assert( _.arrayIs( o.elements ) || _.objectIs( o.elements ) );
 
   o.branch = self.rootNode;
@@ -244,9 +246,10 @@ _makeAboveRoot.defaults =
 function _nodesMake( o )
 {
   var self = this;
+  var node;
 
   _.assert( arguments.length === 1 );
-  _.routineOptions( _nodesMake,o );
+  _.routineOptions( _nodesMake, o );
   _.assert( _.strIs( o.text ) || _.objectIs( o.branch ) );
   _.assert( _.arrayIs( o.elements ) || _.objectIs( o.elements ) );
 
@@ -258,7 +261,7 @@ function _nodesMake( o )
 
     for( var s in o.elements )
     {
-      var node = self._nodeMake
+      node = self._nodeMake
       ({
         text : s,
         elements : o.elements[ s ],
@@ -275,13 +278,13 @@ function _nodesMake( o )
 
     for( var f = 0 ; f < o.elements.length ; f++ )
     {
-      var node = self._nodeMake( o.elements[ f ],o.branch );
+      node = self._nodeMake( o.elements[ f ], o.branch );
       o.branch.elementsDom.append( node.dom );
       o.branch.elements.push( node );
     }
 
   }
-  else throw _.err( 'unexpected type of ( o.elements )',_.strType( o.elements ) );
+  else throw _.err( 'unexpected type of ( o.elements )', _.strType( o.elements ) );
 
   return o.branch;
 }
@@ -301,7 +304,7 @@ function _nodeMake( node, down )
   var self = this;
 
   _.assert( arguments.length === 1 || arguments.length === 2 );
-  _.assert( node !== undefined,'Expects { node }' );
+  _.assert( node !== undefined, 'Expects { node }' );
 
   if( _.objectIs( node ) )
   {
@@ -313,7 +316,7 @@ function _nodeMake( node, down )
     node.kind = 'branch';
 
     _.assert( _.objectIs( node.down ) );
-    _.assert( _.strIs( node.kind ),'not clear is node branch or terminal' );
+    _.assert( _.strIs( node.kind ), 'not clear is node branch or terminal' );
 
     if( node.kind === 'branch' )
     return self._nodeBranchMake( node );
@@ -322,13 +325,13 @@ function _nodeMake( node, down )
   }
   else if( _.strIs( node ) )
   {
-    node = { text : node, down : down }
+    node = { text : node, down }
 
     _.assert( _.objectIs( node.down ) );
 
     return self._nodeTerminalMake( node );
   }
-  else throw _.err( '_nodeMake :','unknown type',_.strType( node ) );
+  else throw _.err( '_nodeMake :', 'unknown type', _.strType( node ) );
 
 }
 
@@ -365,7 +368,7 @@ function _nodeBranchMake( o )
 {
   var self = this;
 
-  _.routineOptions( _nodeBranchMake,o );
+  _.routineOptions( _nodeBranchMake, o );
   _.assert( arguments.length === 1 );
   // _.assert( !o.elements || _.arrayIs( o.elements ) );
   _.assert( !o.elements || _.arrayIs( o.elements ) || _.objectIs( o.elements ) );
@@ -414,18 +417,17 @@ function _nodeBranchMake( o )
   .bind( _.eventName( 'mouseenter' ), function( e )
   {
     var dom = $( this );
-    self._branchHot( dom[ 0 ]._wtreeNode,1 );
+    self._branchHot( dom[ 0 ]._wtreeNode, 1 );
     // console.log( 'mouseenter' );
     return false;
   })
   .bind( _.eventName( 'mouseleave' ), function( e )
   {
     var dom = $( this );
-    self._branchHot( dom[ 0 ]._wtreeNode,0 );
+    self._branchHot( dom[ 0 ]._wtreeNode, 0 );
     // console.log( 'mouseleave' );
     return false;
-  })
-  ;
+  });
 
   /* head dom */
 
@@ -442,10 +444,9 @@ function _nodeBranchMake( o )
   .bind( _.eventName( 'mouseenter' ), function( e )
   {
     var dom = $( this ).closest( '.' + self.branchCssClass );
-    self._branchHot( dom[ 0 ]._wtreeNode,1 );
+    self._branchHot( dom[ 0 ]._wtreeNode, 1 );
     return false;
-  })
-  ;
+  });
 
   /* elements */
 
@@ -456,13 +457,13 @@ function _nodeBranchMake( o )
   if( o.elements )
   for( var i = 0 ; i < o.elements.length ; i++ )
   {
-    o.elements[ i ] = self._nodeMake( o.elements[ i ],o );
+    o.elements[ i ] = self._nodeMake( o.elements[ i ], o );
     o.elementsDom.append( o.elements[ i ].dom );
   }
 
   if( self.usingAttributes && o.attributes )
   {
-    _.domAttrs( o.dom,_.mapOnlyAtomics( o.attributes ) );
+    _.domAttrs( o.dom, _.mapOnlyAtomics( o.attributes ) );
   }
 
   /* */
@@ -497,7 +498,7 @@ function _nodeTerminalMake( o )
   }
 
   _.assert( arguments.length === 1 );
-  _.routineOptions( _nodeTerminalMake,o );
+  _.routineOptions( _nodeTerminalMake, o );
   _.assert( o.kind === 'terminal' );
   _.assert( !( o instanceof Terminal.constructor ) );
 
@@ -524,7 +525,7 @@ function _nodeTerminalMake( o )
 
   if( self.usingAttributes && o.attributes )
   {
-    _.domAttrs( o.dom,_.mapOnlyAtomics( o.attributes ) );
+    _.domAttrs( o.dom, _.mapOnlyAtomics( o.attributes ) );
   }
 
   /* */
@@ -551,8 +552,8 @@ _nodeTerminalMake.defaults =
 function _nodeValidate( node )
 {
   var self = this;
-  _.assert( _.construction.isLike( node,self.Node.Abstract ) );
-  _.assert( _.strDefined( node.text ),'node should has text' );
+  _.assert( _.construction.isLike( node, self.Node.Abstract ) );
+  _.assert( _.strDefined( node.text ), 'node should has text' );
   return self;
 }
 
@@ -571,7 +572,7 @@ function treeApply( o )
   var self = this;
 
   _.assert( arguments.length === 1 );
-  _.routineOptions( treeApply,o );
+  _.routineOptions( treeApply, o );
 
   // debugger;
   if( self._formStage )
@@ -601,10 +602,10 @@ function _nodeClick( node )
 
   if( node )
   if( node.kind === 'branch' )
-  self._branchOpen( node,undefined );
+  self._branchOpen( node, undefined );
   // self._branchOpen( node,node === self.activeNode ? undefined : 1 );
 
-  self.nodeActivateTouching( node,0 );
+  self.nodeActivateTouching( node, 0 );
 
 }
 
@@ -622,7 +623,7 @@ function _buttonNodeOpenCloseClick( openning )
   if( !node )
   return false;
 
-  self.branchOpenRecursive( node,openning );
+  self.branchOpenRecursive( node, openning );
 
   return false;
 }
@@ -637,7 +638,7 @@ function _buttonNodeOpenCloseClick( openning )
  * @memberof module:module:Tools/amid/gui/Tree.wHiTree#
 */
 
-function activateRelativeTouching( offset,axis )
+function activateRelativeTouching( offset, axis )
 {
   var self = this;
   var node = self.activeNode;
@@ -656,9 +657,9 @@ function activateRelativeTouching( offset,axis )
   if( relative )
   {
     if( relative.down )
-    self._branchOpen( relative.down,1 );
+    self._branchOpen( relative.down, 1 );
     if( relative && axis === 'vertical' && offset === -1 )
-    self._branchOpen( relative,0 );
+    self._branchOpen( relative, 0 );
     self.nodeActivateTouching( relative );
   }
 
@@ -676,7 +677,7 @@ function activateRelativeTouching( offset,axis )
  * @memberof module:module:Tools/amid/gui/Tree.wHiTree#
 */
 
-function nodeActivateTouching( node,withKey )
+function nodeActivateTouching( node, withKey )
 {
   var self = this;
 
@@ -688,19 +689,19 @@ function nodeActivateTouching( node,withKey )
 
   self.nodeActivateChanging( node );
 
-  self.eventGive({ kind : 'nodeActivate', node : node });
+  self.eventGive({ kind : 'nodeActivate', node });
 
   // if( _.construction.isLike( node,Node.Branch ) )
   // if( self._spaceDown )
   // debugger;
 
   if( withKey )
-  if( _.construction.isLike( node,Node.Branch ) )
+  if( _.construction.isLike( node, Node.Branch ) )
   if( self._spaceDown )
   if( self._shiftDown )
-  self._branchOpen( node,0 );
+  self._branchOpen( node, 0 );
   else
-  self._branchOpen( node,1 );
+  self._branchOpen( node, 1 );
 
 }
 
@@ -746,12 +747,12 @@ function nodeScrollTo( node )
 {
   var self = this;
 
-  _.assert( _.construction.isLike( node,Node.Abstract ) );
+  _.assert( _.construction.isLike( node, Node.Abstract ) );
 
   var nodeBox = _.domBoundingBoxGlobalGet( node.dom );
   var targetBox = _.domBoundingBoxGlobalGet( self.targetDom );
 
-  nodeBox[ 3 ] = Math.min( nodeBox[ 3 ],nodeBox[ 1 ] + targetBox[ 3 ]-targetBox[ 1 ] );
+  nodeBox[ 3 ] = Math.min( nodeBox[ 3 ], nodeBox[ 1 ] + targetBox[ 3 ]-targetBox[ 1 ] );
 
   var top = nodeBox[ 1 ]-targetBox[ 1 ];
   var bottom = targetBox[ 3 ]-nodeBox[ 3 ];
@@ -784,16 +785,16 @@ function nodeScrollTo( node )
  * @memberof module:module:Tools/amid/gui/Tree.wHiTree#
 */
 
-function branchOpenRecursive( node,value )
+function branchOpenRecursive( node, value )
 {
   var self = this;
 
   _.assert( arguments.length === 1 || arguments.length === 2 );
   _.assert( _.objectIs( node ) );
 
-  self._nodeEach( node,function( node )
+  self._nodeEach( node, function( node )
   {
-    self._branchOpen( node,value );
+    self._branchOpen( node, value );
   });
 
 }
@@ -808,7 +809,7 @@ function branchOpenRecursive( node,value )
  * @memberof module:module:Tools/amid/gui/Tree.wHiTree#
 */
 
-function branchOpen( selector,value )
+function branchOpen( selector, value )
 {
   var self = this;
 
@@ -819,30 +820,30 @@ function branchOpen( selector,value )
 
   _.assert( arguments.length === 1 || arguments.length === 2 );
 
-  var nodes = _.filter_( null, self.nodes,selector )
+  var nodes = _.filter_( null, self.nodes, selector )
 
   for( var i = 0 ; i < nodes.length ; i++ )
-  self._branchOpen( nodes[ i ],value );
+  self._branchOpen( nodes[ i ], value );
 
   return self;
 }
 
 //
 
-function _branchOpen( branch,value )
+function _branchOpen( branch, value )
 {
   var self = this;
 
   _.assert( _.objectIs( branch ) )
   _.assert( arguments.length === 1 || arguments.length === 2 );
 
-  _.domClass( branch.dom,self.openedCssClass,value )
+  _.domClass( branch.dom, self.openedCssClass, value )
 
 }
 
 //
 
-function _branchHot( node,value )
+function _branchHot( node, value )
 {
   var self = this;
 
@@ -851,10 +852,10 @@ function _branchHot( node,value )
 
   if( self.hotNode )
   {
-    _.domClass( self.hotNode.dom,self.hotCssClass,0 );
+    _.domClass( self.hotNode.dom, self.hotCssClass, 0 );
   }
 
-  _.domClass( node.dom,self.hotCssClass,value );
+  _.domClass( node.dom, self.hotCssClass, value );
 
   self.hotNode = null;
   self.iconsDom.detach();
@@ -863,10 +864,10 @@ function _branchHot( node,value )
   if( value )
   {
     self.iconsDom.appendTo( node.headDom );
-    self.iconsDom.css( 'display','block' );
+    self.iconsDom.css( 'display', 'block' );
 
     self.hotBarDom.appendTo( node.dom );
-    self.hotBarDom.css( 'display','block' );
+    self.hotBarDom.css( 'display', 'block' );
 
     self.hotNode = node;
   }
@@ -903,7 +904,7 @@ function _goRelative( o )
   if( _.construction.isLike( arguments[ 0 ], Node.Abstract ) )
   o = { node : arguments[ 0 ], offset : arguments[ 1 ], axis : arguments[ 2 ] };
 
-  _.routineOptions( _goRelative,o );
+  _.routineOptions( _goRelative, o );
   _.assert( arguments.length === 1 || arguments.length === 2 || arguments.length === 3 );
 
   var relative = _.graph.goRelative( o );
@@ -912,8 +913,9 @@ function _goRelative( o )
 }
 
 _goRelative.defaults = {};
-_goRelative.defaults.__proto__ = _.graph.goRelative.defaults;
-_.mapExtend( _goRelative.defaults,NodeGetters );
+// _goRelative.defaults.__proto__ = _.graph.goRelative.defaults;
+Object.setPrototypeOf( _goRelative.defaults, _.graph.goRelative.defaults )
+_.mapExtend( _goRelative.defaults, NodeGetters );
 
 // --
 //
@@ -1002,7 +1004,7 @@ var Composes =
   nodes : _.define.own( [] ),
   terminals : _.define.own( [] ),
 
-  onBranchElements : onBranchElements,
+  onBranchElements,
 
   // onFolderNameGet : onFolderNameGet,
   // onFolderItemsGet : onFolderItemsGet,
@@ -1043,8 +1045,8 @@ var Restricts =
 
 var Statics =
 {
-  exec : exec,
-  Node : Node,
+  exec,
+  Node,
 }
 
 var Events =
@@ -1060,55 +1062,55 @@ var Events =
 var Proto =
 {
 
-  init : init,
+  init,
 
-  exec : exec,
-  _exec : _exec,
-  _execDefaults : _execDefaults,
+  exec,
+  _exec,
+  _execDefaults,
 
-  _formAct : _formAct,
-  _makeRoot : _makeRoot,
-  _makeAboveRoot : _makeAboveRoot,
+  _formAct,
+  _makeRoot,
+  _makeAboveRoot,
 
-  _nodesMake : _nodesMake,
-  _nodeMake : _nodeMake,
-  _nodeFrom : _nodeFrom,
+  _nodesMake,
+  _nodeMake,
+  _nodeFrom,
 
-  _nodeBranchMake : _nodeBranchMake,
-  _nodeTerminalMake : _nodeTerminalMake,
-  _nodeValidate : _nodeValidate,
+  _nodeBranchMake,
+  _nodeTerminalMake,
+  _nodeValidate,
 
-  treeApply : treeApply,
+  treeApply,
 
   //
 
-  _nodeClick : _nodeClick,
-  _buttonNodeOpenCloseClick : _buttonNodeOpenCloseClick,
-  activateRelativeTouching : activateRelativeTouching,
+  _nodeClick,
+  _buttonNodeOpenCloseClick,
+  activateRelativeTouching,
 
-  nodeActivateTouching : nodeActivateTouching,
-  nodeActivateChanging : nodeActivateChanging,
+  nodeActivateTouching,
+  nodeActivateChanging,
 
-  nodeScrollTo : nodeScrollTo,
+  nodeScrollTo,
 
-  branchOpenRecursive : branchOpenRecursive,
-  branchOpen : branchOpen,
-  _branchOpen : _branchOpen,
-  _branchHot : _branchHot,
+  branchOpenRecursive,
+  branchOpen,
+  _branchOpen,
+  _branchHot,
 
   // traversing
 
-  _nodeEach : _nodeEach,
-  _goRelative : _goRelative,
+  _nodeEach,
+  _goRelative,
 
   //
 
-  Composes : Composes,
-  Aggregates : Aggregates,
-  Associates : Associates,
-  Restricts : Restricts,
-  Statics : Statics,
-  Events : Events,
+  Composes,
+  Aggregates,
+  Associates,
+  Restricts,
+  Statics,
+  Events,
 
 }
 
