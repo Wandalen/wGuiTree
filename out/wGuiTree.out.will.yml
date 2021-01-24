@@ -2,10 +2,13 @@ format: outwillfile-2.0
 root:
   - wGuiTree.out
 consistency:
-  ../.ex.will.yml: &ref_0
+  wGuiTree.out.will.yml: &ref_0
+    hash: c40bbea4b7197b932ab8db9411605afe
+    size: 37483
+  ../.ex.will.yml: &ref_1
     hash: 20372bcf4f04d60d2a8b4b537e17d2a0
     size: 1691
-  ../.im.will.yml: &ref_1
+  ../.im.will.yml: &ref_2
     hash: 9542571287292a9c43143ab8eeb955bd
     size: 4944
 module:
@@ -16,18 +19,18 @@ module:
       description: GUI element to interact with tree structures.
       enabled: 1
       version: 0.4.0
-      interpreters: &ref_2
+      interpreters:
         - njs >= 10.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords: &ref_3
+      keywords:
         - wTools
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: &ref_4
+      contributors:
         - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wguitree
-      npm.scripts: &ref_5
+      npm.scripts:
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -687,6 +690,24 @@ module:
           content: prime
         inherit:
           - files.transpile
+      exported.proto.export:
+        opts:
+          filePath: reflector::exported.proto.export
+        criterion:
+          generated: 1
+          content: proto
+          export: 1
+        inherit:
+          - files.reflect
+      exported.files.proto.export:
+        opts:
+          filePath: reflector::exported.files.proto.export
+        criterion:
+          generated: 1
+          content: proto
+          export: 1
+        inherit:
+          - files.reflect
     build:
       proto.export:
         steps:
@@ -775,8 +796,9 @@ module:
           content: proto
           export: 1
     consistency:
-      ../.ex.will.yml: *ref_0
-      ../.im.will.yml: *ref_1
+      wGuiTree.out.will.yml: *ref_0
+      ../.ex.will.yml: *ref_1
+      ../.im.will.yml: *ref_2
   ../:
     about:
       name: wGuiTree
@@ -784,13 +806,20 @@ module:
       description: GUI element to interact with tree structures.
       enabled: 1
       version: 0.4.0
-      interpreters: *ref_2
-      keywords: *ref_3
+      interpreters:
+        - njs >= 10.0.0
+        - chrome >= 60.0.0
+        - firefox >= 60.0.0
+      keywords:
+        - wTools
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: *ref_4
+      contributors:
+        - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wguitree
-      npm.scripts: *ref_5
+      npm.scripts:
+        test: wtest .run proto/**
+        docgen: wdocgen .build proto
     path:
       module.willfiles:
         criterion:
@@ -1455,3 +1484,6 @@ module:
       ../.im.will.yml:
         hash: 9542571287292a9c43143ab8eeb955bd
         size: 4944
+      wGuiTree.out.will.yml:
+        hash: c40bbea4b7197b932ab8db9411605afe
+        size: 37483
