@@ -8,7 +8,7 @@ GUI element to interact with tree structures.
 git clone https://github.com/Wandalen/wGuiTree
 cd wGuiTree
 npm install
-node sample/Sample.s
+node sample/trivial/Sample.s
 ```
 
 ## To add to your project
