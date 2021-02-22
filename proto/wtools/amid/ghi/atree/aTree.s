@@ -284,7 +284,7 @@ function _nodesMake( o )
     }
 
   }
-  else throw _.err( 'unexpected type of ( o.elements )', _.strType( o.elements ) );
+  else throw _.err( 'unexpected type of ( o.elements )', _.entity.strType( o.elements ) );
 
   return o.branch;
 }
@@ -331,7 +331,7 @@ function _nodeMake( node, down )
 
     return self._nodeTerminalMake( node );
   }
-  else throw _.err( '_nodeMake :', 'unknown type', _.strType( node ) );
+  else throw _.err( '_nodeMake :', 'unknown type', _.entity.strType( node ) );
 
 }
 
