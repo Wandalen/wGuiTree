@@ -356,7 +356,6 @@ function _nodeFrom( src )
     result.kind = 'branch';
   }
 
-  debugger;
   _.assert( _.mapIs( result ) || _.construction.isLike( result, Self.Node.Abstract ) );
 
   return result;
@@ -574,12 +573,10 @@ function treeApply( o )
   _.assert( arguments.length === 1 );
   _.routineOptions( treeApply, o );
 
-  // debugger;
   if( self._formStage )
   self._makeAboveRoot( o );
   else
   self.folderMap = o.elements;
-  // debugger;
 
   return self;
 }
