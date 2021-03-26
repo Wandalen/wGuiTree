@@ -31,7 +31,7 @@ _.include( 'wGraph' );
  * @memberof module:Tools/amid/gui/Tree
 */
 
-let Parent = wGhiAbstractModule;
+const Parent = wGhiAbstractModule;
 const Self = wHiTree;
 function wHiTree( o )
 {
@@ -1056,7 +1056,7 @@ var Events =
 // proto
 // --
 
-var Proto =
+const Proto =
 {
 
   init,
