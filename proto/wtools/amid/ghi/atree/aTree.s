@@ -19,7 +19,7 @@ if( typeof module !== 'undefined' )
 }
 
 var $ = jQuery;
-let _ = _global_.wTools;
+const _ = _global_.wTools;
 
 _.include( 'wInstancing' );
 _.include( 'wEventHandler' );
@@ -32,7 +32,7 @@ _.include( 'wGraph' );
 */
 
 let Parent = wGhiAbstractModule;
-let Self = wHiTree;
+const Self = wHiTree;
 function wHiTree( o )
 {
   return _.workpiece.construct( Self, this, arguments );
