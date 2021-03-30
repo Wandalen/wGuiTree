@@ -1,14 +1,15 @@
 {
   "name": "wguitree",
-  "version": "0.3.213",
+  "version": "0.3.214",
   "description": "GUI element to interact with tree structures.",
   "author": "Kostiantyn Wandalen <wanalen@01.school>",
   "license": "MIT",
-  "main": "proto/wtools/amid/___",
+  "main": "proto/wtools/amid/ghi/atree/aTree.s",
   "files": [
     "proto/wtools/amid",
     "proto/wtools/Tools.s",
-    "out"
+    "out",
+    "proto/node_modules"
   ],
   "scripts": {
     "test": "wtest .run 'proto/**' rapidity:-3",
