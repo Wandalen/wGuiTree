@@ -73,8 +73,8 @@ path:
       raw: compiled
       content: prime
   npm.proto.entry:
-    - /pro/module/wGuiTree/proto/wtools/amid/ghi/atree/aTree.s
-    - /pro/module/wGuiTree/proto/node_modules/wguitree
+    - proto/wtools/amid/ghi/atree/aTree.s
+    - proto/node_modules/wguitree
 reflector:
   reflect.proto:
     inherit: predefined.*
