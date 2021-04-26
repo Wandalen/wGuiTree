@@ -198,7 +198,7 @@ function _makeRoot( o )
   o = o || Object.create( null );
 
   _.assert( arguments.length === 0 || arguments.length === 1 );
-  _.routineOptions( _makeRoot, o );
+  _.routine.options_( _makeRoot, o );
   _.assert( _.strIs( o.text ) );
   _.assert( !self.rootNode );
 
@@ -226,7 +226,7 @@ function _makeAboveRoot( o )
   o.elements = self.onBranchElements( o.elements );
 
   _.assert( arguments.length === 0 || arguments.length === 1 );
-  _.routineOptions( _makeAboveRoot, o );
+  _.routine.options_( _makeAboveRoot, o );
   _.assert( _.arrayIs( o.elements ) || _.objectIs( o.elements ) );
 
   o.branch = self.rootNode;
@@ -249,7 +249,7 @@ function _nodesMake( o )
   var node;
 
   _.assert( arguments.length === 1 );
-  _.routineOptions( _nodesMake, o );
+  _.routine.options_( _nodesMake, o );
   _.assert( _.strIs( o.text ) || _.objectIs( o.branch ) );
   _.assert( _.arrayIs( o.elements ) || _.objectIs( o.elements ) );
 
@@ -367,7 +367,7 @@ function _nodeBranchMake( o )
 {
   var self = this;
 
-  _.routineOptions( _nodeBranchMake, o );
+  _.routine.options_( _nodeBranchMake, o );
   _.assert( arguments.length === 1 );
   // _.assert( !o.elements || _.arrayIs( o.elements ) );
   _.assert( !o.elements || _.arrayIs( o.elements ) || _.objectIs( o.elements ) );
@@ -497,7 +497,7 @@ function _nodeTerminalMake( o )
   }
 
   _.assert( arguments.length === 1 );
-  _.routineOptions( _nodeTerminalMake, o );
+  _.routine.options_( _nodeTerminalMake, o );
   _.assert( o.kind === 'terminal' );
   _.assert( !( o instanceof Terminal.constructor ) );
 
@@ -571,7 +571,7 @@ function treeApply( o )
   var self = this;
 
   _.assert( arguments.length === 1 );
-  _.routineOptions( treeApply, o );
+  _.routine.options_( treeApply, o );
 
   if( self._formStage )
   self._makeAboveRoot( o );
@@ -881,7 +881,7 @@ function _nodeEach( o )
   var self = this;
 
   if( arguments[ 1 ] )
-  o = { node : arguments[ 0 ], onUp : arguments[ 1 ] };
+  o = { node : arguments[ 0 ], onUp : ( arguments.length > 1 ? arguments[ 1 ] : null ) };
 
   _.assert( _.objectIs( o.node ) );
   _.assert( arguments.length === 1 || arguments.length === 2 );
@@ -899,9 +899,9 @@ function _goRelative( o )
   var self = this;
 
   if( _.construction.isLike( arguments[ 0 ], Node.Abstract ) )
-  o = { node : arguments[ 0 ], offset : arguments[ 1 ], axis : arguments[ 2 ] };
+  o = { node : arguments[ 0 ], offset : ( arguments.length > 1 ? arguments[ 1 ] : null ), axis : ( arguments.length > 2 ? arguments[ 2 ] : null ) };
 
-  _.routineOptions( _goRelative, o );
+  _.routine.options_( _goRelative, o );
   _.assert( arguments.length === 1 || arguments.length === 2 || arguments.length === 3 );
 
   var relative = _.graph.goRelative( o );
@@ -912,7 +912,7 @@ function _goRelative( o )
 _goRelative.defaults = {};
 // _goRelative.defaults.__proto__ = _.graph.goRelative.defaults;
 Object.setPrototypeOf( _goRelative.defaults, _.graph.goRelative.defaults )
-_.mapExtend( _goRelative.defaults, NodeGetters );
+_.props.extend( _goRelative.defaults, NodeGetters );
 
 // --
 //
