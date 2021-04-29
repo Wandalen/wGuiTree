@@ -227,7 +227,7 @@ function _makeAboveRoot( o )
 
   _.assert( arguments.length === 0 || arguments.length === 1 );
   _.routine.options_( _makeAboveRoot, o );
-  _.assert( _.arrayIs( o.elements ) || _.objectIs( o.elements ) );
+  _.assert( _.arrayIs( o.elements ) || _.object.isBasic( o.elements ) );
 
   o.branch = self.rootNode;
   var node = self._nodesMake( o );
@@ -250,8 +250,8 @@ function _nodesMake( o )
 
   _.assert( arguments.length === 1 );
   _.routine.options_( _nodesMake, o );
-  _.assert( _.strIs( o.text ) || _.objectIs( o.branch ) );
-  _.assert( _.arrayIs( o.elements ) || _.objectIs( o.elements ) );
+  _.assert( _.strIs( o.text ) || _.object.isBasic( o.branch ) );
+  _.assert( _.arrayIs( o.elements ) || _.object.isBasic( o.elements ) );
 
   o.branch = o.branch || self._nodeBranchMake({ text : o.text })
   o.branch.elements = [];
@@ -306,7 +306,7 @@ function _nodeMake( node, down )
   _.assert( arguments.length === 1 || arguments.length === 2 );
   _.assert( node !== undefined, 'Expects { node }' );
 
-  if( _.objectIs( node ) )
+  if( _.object.isBasic( node ) )
   {
 
     if( !node.down )
@@ -315,7 +315,7 @@ function _nodeMake( node, down )
     if( !node.kind && node.elements )
     node.kind = 'branch';
 
-    _.assert( _.objectIs( node.down ) );
+    _.assert( _.object.isBasic( node.down ) );
     _.assert( _.strIs( node.kind ), 'not clear is node branch or terminal' );
 
     if( node.kind === 'branch' )
@@ -327,7 +327,7 @@ function _nodeMake( node, down )
   {
     node = { text : node, down }
 
-    _.assert( _.objectIs( node.down ) );
+    _.assert( _.object.isBasic( node.down ) );
 
     return self._nodeTerminalMake( node );
   }
@@ -370,7 +370,7 @@ function _nodeBranchMake( o )
   _.routine.options_( _nodeBranchMake, o );
   _.assert( arguments.length === 1 );
   // _.assert( !o.elements || _.arrayIs( o.elements ) );
-  _.assert( !o.elements || _.arrayIs( o.elements ) || _.objectIs( o.elements ) );
+  _.assert( !o.elements || _.arrayIs( o.elements ) || _.object.isBasic( o.elements ) );
   _.assert( _.strIs( o.text ) );
   _.assert( o.kind === 'branch' );
   _.assert( _.mapIs( o ) );
@@ -595,7 +595,7 @@ function _nodeClick( node )
   var self = this;
 
   _.assert( arguments.length === 1 );
-  _.assert( _.objectIs( node ) || node === null );
+  _.assert( _.object.isBasic( node ) || node === null );
 
   if( node )
   if( node.kind === 'branch' )
@@ -641,7 +641,7 @@ function activateRelativeTouching( offset, axis )
   var node = self.activeNode;
 
   _.assert( arguments.length === 1 || arguments.length === 2 );
-  _.assert( _.objectIs( node ) || node === null );
+  _.assert( _.object.isBasic( node ) || node === null );
   _.assert( _.numberIs( offset ) );
 
   // console.log( 'activateRelativeTouching' );
@@ -682,7 +682,7 @@ function nodeActivateTouching( node, withKey )
   withKey = 1;
 
   _.assert( arguments.length === 1 || arguments.length === 2 );
-  _.assert( _.objectIs( node ) || node === null );
+  _.assert( _.object.isBasic( node ) || node === null );
 
   self.nodeActivateChanging( node );
 
@@ -717,7 +717,7 @@ function nodeActivateChanging( node )
   var self = this;
 
   _.assert( arguments.length === 1 );
-  _.assert( _.objectIs( node ) || node === null );
+  _.assert( _.object.isBasic( node ) || node === null );
 
   if( self.activeNode )
   self.activeNode.dom.removeClass( self.activeCssClass );
@@ -787,7 +787,7 @@ function branchOpenRecursive( node, value )
   var self = this;
 
   _.assert( arguments.length === 1 || arguments.length === 2 );
-  _.assert( _.objectIs( node ) );
+  _.assert( _.object.isBasic( node ) );
 
   self._nodeEach( node, function( node )
   {
@@ -831,7 +831,7 @@ function _branchOpen( branch, value )
 {
   var self = this;
 
-  _.assert( _.objectIs( branch ) )
+  _.assert( _.object.isBasic( branch ) )
   _.assert( arguments.length === 1 || arguments.length === 2 );
 
   _.domClass( branch.dom, self.openedCssClass, value )
@@ -844,7 +844,7 @@ function _branchHot( node, value )
 {
   var self = this;
 
-  _.assert( _.objectIs( node ) )
+  _.assert( _.object.isBasic( node ) )
   _.assert( arguments.length === 1 || arguments.length === 2 );
 
   if( self.hotNode )
@@ -883,7 +883,7 @@ function _nodeEach( o )
   if( arguments[ 1 ] )
   o = { node : arguments[ 0 ], onUp : ( arguments.length > 1 ? arguments[ 1 ] : null ) };
 
-  _.assert( _.objectIs( o.node ) );
+  _.assert( _.object.isBasic( o.node ) );
   _.assert( arguments.length === 1 || arguments.length === 2 );
 
   o.elementsGet = function( node ){ return node.elements || []; };
