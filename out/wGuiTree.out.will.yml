@@ -2,12 +2,9 @@ format: outwillfile-2.0
 root:
   - wGuiTree.out
 consistency:
-  ../.ex.will.yml: &ref_0
-    hash: 20372bcf4f04d60d2a8b4b537e17d2a0
-    size: 1691
-  ../.im.will.yml: &ref_1
-    hash: eaf87c8d395026a8a110ed0cea8ecc53
-    size: 4881
+  ../will.yml: &ref_0
+    hash: 6028f22ecd53d6ce6083e31f3d7bd5a4
+    size: 6325
 module:
   wGuiTree.out:
     about:
@@ -16,18 +13,18 @@ module:
       description: GUI element to interact with tree structures.
       enabled: 1
       version: 0.4.0
-      interpreters: &ref_2
+      license: MIT
+      npm.name: wguitree
+      author: Kostiantyn Wandalen <wanalen@01.school>
+      keywords: &ref_1
+        - wTools
+      contributors: &ref_2
+        - Kostiantyn Wandalen <wanalen@01.school>
+      interpreters: &ref_3
         - njs >= 10.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords: &ref_3
-        - wTools
-      license: MIT
-      author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: &ref_4
-        - Kostiantyn Wandalen <wanalen@01.school>
-      npm.name: wguitree
-      npm.scripts: &ref_5
+      npm.scripts: &ref_4
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -42,15 +39,11 @@ module:
       module.original.willfiles:
         criterion:
           predefined: 1
-        path:
-          - ../.ex.will.yml
-          - ../.im.will.yml
+        path: ../will.yml
       module.peer.willfiles:
         criterion:
           predefined: 1
-        path:
-          - ../.ex.will.yml
-          - ../.im.will.yml
+        path: ../will.yml
       module.peer.in:
         criterion:
           predefined: 1
@@ -782,8 +775,7 @@ module:
           content: proto
           export: 1
     consistency:
-      ../.ex.will.yml: *ref_0
-      ../.im.will.yml: *ref_1
+      ../will.yml: *ref_0
   ../:
     about:
       name: wGuiTree
@@ -791,26 +783,22 @@ module:
       description: GUI element to interact with tree structures.
       enabled: 1
       version: 0.4.0
-      interpreters: *ref_2
-      keywords: *ref_3
       license: MIT
-      author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: *ref_4
       npm.name: wguitree
-      npm.scripts: *ref_5
+      author: Kostiantyn Wandalen <wanalen@01.school>
+      keywords: *ref_1
+      contributors: *ref_2
+      interpreters: *ref_3
+      npm.scripts: *ref_4
     path:
       module.willfiles:
         criterion:
           predefined: 1
-        path:
-          - .ex.will.yml
-          - .im.will.yml
+        path: will.yml
       module.original.willfiles:
         criterion:
           predefined: 1
-        path:
-          - .ex.will.yml
-          - .im.will.yml
+        path: will.yml
       module.peer.willfiles:
         criterion:
           predefined: 1
@@ -1461,9 +1449,6 @@ module:
           - 'build::release'
           - 'build::npm'
     consistency:
-      ../.ex.will.yml:
-        hash: 20372bcf4f04d60d2a8b4b537e17d2a0
-        size: 1691
-      ../.im.will.yml:
-        hash: eaf87c8d395026a8a110ed0cea8ecc53
-        size: 4881
+      ../will.yml:
+        hash: 6028f22ecd53d6ce6083e31f3d7bd5a4
+        size: 6325
