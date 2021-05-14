@@ -974,7 +974,7 @@ Node.Terminal = Terminal;
 var symbolForValues = Symbol.for( 'values' );
 
 // --
-// relationship
+// relations
 // --
 
 var Composes =
