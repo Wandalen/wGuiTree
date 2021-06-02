@@ -178,8 +178,8 @@ function _formAct()
   self._makeRoot();
 
   _.assert( arguments.length === 0, 'Expects no arguments' );
-  _.assert( self.targetDom.length );
-  _.assert( self.contentDom.length );
+  _.assert( self.targetDom.length > 0 );
+  _.assert( self.contentDom.length > 0 );
 
   if( self.folderMap )
   {
