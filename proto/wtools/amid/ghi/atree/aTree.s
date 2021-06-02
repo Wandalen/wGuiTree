@@ -689,8 +689,6 @@ function nodeActivateTouching( node, withKey )
   self.eventGive({ kind : 'nodeActivate', node });
 
   // if( _.construction.isLike( node,Node.Branch ) )
-  // if( self._spaceDown )
-  // debugger;
 
   if( withKey )
   if( _.construction.isLike( node, Node.Branch ) )
@@ -899,7 +897,12 @@ function _goRelative( o )
   var self = this;
 
   if( _.construction.isLike( arguments[ 0 ], Node.Abstract ) )
-  o = { node : arguments[ 0 ], offset : ( arguments.length > 1 ? arguments[ 1 ] : null ), axis : ( arguments.length > 2 ? arguments[ 2 ] : null ) };
+  o =
+  {
+    node : arguments[ 0 ],
+    offset : ( arguments.length > 1 ? arguments[ 1 ] : null ),
+    axis : ( arguments.length > 2 ? arguments[ 2 ] : null )
+  };
 
   _.routine.options_( _goRelative, o );
   _.assert( arguments.length === 1 || arguments.length === 2 || arguments.length === 3 );
