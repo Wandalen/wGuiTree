@@ -1,11 +1,11 @@
 {
   "name" : "wguitree",
-  "version" : "0.3.237",
+  "version" : "0.3.238",
   "description" : "GUI element to interact with tree structures.",
   "author" : "Kostiantyn Wandalen <wanalen@01.school>",
   "license" : "MIT",
   "main" : "proto/node_modules/wguitree",
-  "files" : [ "proto/wtools/amid", "out", "proto/node_modules" ],
+  "files" : [ "proto/wtools/amid", "out", "proto/node_modules", "proto/node_modules/Tools", "proto/node_modules/wguitree" ],
   "scripts" : { "test" : "wtest .run 'proto/**' rapidity:-3", "docgen" : "wdocgen proto" },
   "repository" : { "type" : "git", "url" : "https://github.com/Wandalen/wGuiTree.git" },
   "bugs" :
