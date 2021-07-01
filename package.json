@@ -1,18 +1,36 @@
 {
-  "name" : "wguitree",
-  "version" : "0.3.238",
-  "description" : "GUI element to interact with tree structures.",
-  "author" : "Kostiantyn Wandalen <wanalen@01.school>",
-  "license" : "MIT",
-  "main" : "proto/node_modules/wguitree",
-  "files" : [ "proto/wtools/amid", "out", "proto/node_modules", "proto/node_modules/Tools", "proto/node_modules/wguitree" ],
-  "scripts" : { "test" : "wtest .run 'proto/**' rapidity:-3", "docgen" : "wdocgen proto" },
-  "repository" : { "type" : "git", "url" : "https://github.com/Wandalen/wGuiTree.git" },
-  "bugs" :
-  {
-    "url" : "https://github.com/Wandalen/wGuiTree/issues"
+  "name": "wguitree",
+  "version": "0.3.239",
+  "description": "GUI element to interact with tree structures.",
+  "author": "Kostiantyn Wandalen <wanalen@01.school>",
+  "license": "MIT",
+  "main": "proto/node_modules/wguitree",
+  "files": [
+    "proto/wtools/amid",
+    "out",
+    "proto/node_modules",
+    "proto/node_modules/Tools",
+    "proto/node_modules/wguitree"
+  ],
+  "scripts": {
+    "test": "wtest .run 'proto/**' rapidity:-3",
+    "docgen": "wdocgen proto"
   },
-  "dependencies" : { "wTools" : "gamma" },
-  "devDependencies" : { "eslint" : "7.1.0", "wTesting" : "gamma" },
-  "keywords" : [ "wTools" ]
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wandalen/wGuiTree.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Wandalen/wGuiTree/issues"
+  },
+  "dependencies": {
+    "wTools": "gamma"
+  },
+  "devDependencies": {
+    "wTesting": "gamma",
+    "eslint": "7.1.0"
+  },
+  "keywords": [
+    "wTools"
+  ]
 }
