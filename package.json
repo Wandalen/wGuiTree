@@ -1,6 +1,6 @@
 {
   "name": "wguitree",
-  "version": "0.3.262",
+  "version": "0.3.263",
   "description": "GUI element to interact with tree structures.",
   "author": "Kostiantyn Wandalen <wanalen@01.school>",
   "license": "MIT",
@@ -24,10 +24,10 @@
     "url": "https://github.com/Wandalen/wGuiTree/issues"
   },
   "dependencies": {
-    "wTools": "delta"
+    "wTools": "latest"
   },
   "devDependencies": {
-    "wTesting": "delta",
+    "wTesting": "latest",
     "eslint": "7.32.0"
   },
   "keywords": [
