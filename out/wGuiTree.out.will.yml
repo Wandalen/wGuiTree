@@ -3,8 +3,8 @@ root:
   - wGuiTree.out
 consistency:
   ../will.yml: &ref_0
-    hash: ee7582bed5357fa69c80d58d33cc1667
-    size: 6184
+    hash: 5f08565ab99b21c8c0cc932bf90ad40e
+    size: 6192
 module:
   wGuiTree.out:
     about:
@@ -1432,5 +1432,5 @@ module:
           - 'build::npm'
     consistency:
       ../will.yml:
-        hash: ee7582bed5357fa69c80d58d33cc1667
-        size: 6184
+        hash: 5f08565ab99b21c8c0cc932bf90ad40e
+        size: 6192
