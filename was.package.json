@@ -1,6 +1,6 @@
 {
   "name": "wguitree",
-  "version": "0.3.270",
+  "version": "0.3.271",
   "description": "GUI element to interact with tree structures.",
   "author": "Kostiantyn Wandalen <wandalen@obox.systems>",
   "license": "MIT",
